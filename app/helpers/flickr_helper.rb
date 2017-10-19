@@ -4,6 +4,7 @@ module FlickrHelper
 	end 
 
 	def sidebar_widget(user_id, photo_count = 12, columns = 6)
+    user_id ||= user_name_to_id(user_id)
     begin
       photos = user_photos(user_id, photo_count).in_groups_of(6)
       render :partial => '/flickr/sidebar_widget', :locals => { :photos => photos }

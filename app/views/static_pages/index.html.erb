@@ -6,12 +6,7 @@
 
 <% if params[:user_id].nil? %>
   <%= render 'flickr/unavailable' %>
-<% elsif %>  
+<% else %>  
   <%= sidebar_widget(params[:user_id]) %>
-<% else %>
-  <% flickr_id = user_name_to_id(params[:user_id]) %>
-  <%= sidebar_widget(flickr_id) %>
 <% end %>
-
-
 
