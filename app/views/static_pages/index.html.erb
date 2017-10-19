@@ -1,0 +1,14 @@
+<%= form_tag("/", method: "get") do %>
+  <%= label_tag(:user_id, "Search for:") %>
+  <%= text_field_tag(:user_id, nil , placeholder: "enter user id") %>
+  <%= submit_tag("Search") %>
+<% end %>  
+
+<% if params[:user_id].nil? %>
+  <%= render 'flickr/unavailable' %>
+<% else %>  
+<%= sidebar_widget(params[:user_id]) %>
+<% end %>
+
+
+
