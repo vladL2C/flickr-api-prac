@@ -11,4 +11,12 @@ module FlickrHelper
       render :partial => '/flickr/unavailable'
     end
 	end
+
+  def user_name_to_id(username)
+    begin 
+      flickr.people.findByUsername(:username => username).nsid
+    rescue Exception 
+      render :partial => '/flickr/unavailable'
+    end     
+  end 
 end 	 			
